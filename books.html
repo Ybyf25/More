@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Полезные книги для преподавателя математики</title>
+  <meta name="description" content="Список книг для изучения и преподавания математики: анализ, алгебра, вероятности.">
+  <meta name="keywords" content="книги, математика, преподаватель, обучение, анализ, алгебра, теория вероятностей">
+  <meta name="robots" content="index,follow">
+  <script>
+    function toggleImage(id) {
+      var el = document.getElementById(id);
+      if (el.style.display === "none") {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Полезные книги</h1>
+  </header>
+
+  <main>
+    <ul type="none">
+      <li onclick="toggleImage('book1')">
+        <img src="marker.png" alt="Маркер списка" width="32"> «Математический анализ»
+        <div id="book1" style="display:none;">
+          <img src="analysis.jpg" alt="Обложка книги Математический анализ" width="120" height="160">
+        </div>
+      </li>
+      <li onclick="toggleImage('book2')">
+        <img src="marker.png" alt="Маркер списка" width="32"> «Линейная алгебра»
+        <div id="book2" style="display:none;">
+          <img src="linear.jpg" alt="Обложка книги Линейная алгебра" width="120" height="160">
+        </div>
+      </li>
+      <li onclick="toggleImage('book3')">
+        <img src="marker.png" alt="Маркер списка" width="32"> «Теория вероятностей»
+        <div id="book3" style="display:none;">
+          <img src="probability.jpg" alt="Обложка книги Теория вероятностей" width="120" height="160">
+        </div>
+      </li>
+    </ul>
+  </main>
+
+  <footer>
+    <p><a href="resume.html">Вернуться к резюме</a></p>
+    <p>&copy; 2025 Персональный сайт преподавателя. Все права защищены.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Учёба на ММФ БГУ — студенческая жизнь и традиции</title>
+  <meta name="description" content="Интересная информация о жизни механико-математического факультета БГУ: кружки, наука, традиции, цитаты.">
+  <meta name="keywords" content="БГУ, ММФ, факультет, математика, студенческая жизнь, кружки, традиции">
+  <meta name="robots" content="index,follow">
+  <script>
+    // (8) Показ скрытого параграфа
+    function showHidden() {
+      document.getElementById("hiddenPara").style.display = "block";
+    }
+    // (9) Горячая клавиша ALT+F — сайт факультета
+    document.addEventListener("keydown", function(event) {
+      if (event.altKey && event.key === "f") {
+        window.location.href = "https://mmf.bsu.by";
+      }
+    });
+    // (11) Формирование письма из редактируемого абзаца    
+    function sendMail() {
+      var content = document.getElementById("editable").innerText;
+      var recipients = "student1@mail.com,student2@mail.com";
+      var subject = "Предлагаю встретиться";
+      var link = "mailto:" + recipients + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(content);
+      window.location.href = link;
+    }
+
+
+
+    // Для музыки :)
+/*
+    document.addEventListener("DOMContentLoaded", function() {
+      var quote = document.getElementById("gaudeamus");
+      var audio = document.getElementById("gaudeamusAudio");
+
+      quote.addEventListener("mouseenter", function() {
+        audio.play();
+      });
+
+      quote.addEventListener("mouseleave", function() {
+        audio.pause();
+        audio.currentTime = 0; // сбросить на начало
+      });
+    });
+*/
+    document.addEventListener("DOMContentLoaded", function() {
+      var quote = document.getElementById("gaudeamus");
+      var audio = document.getElementById("gaudeamusAudio");
+      var btn = document.getElementById("stopMusicBtn");
+      var clickCount = 0;
+
+      // При наведении запускаем аудио
+      quote.addEventListener("mouseenter", function() {
+        audio.play();
+      });
+
+      // Когда аудио начинает играть — показываем кнопку
+      audio.addEventListener("play", function() {
+        btn.style.display = "inline";
+      });
+
+      // Когда аудио закончилось — скрываем кнопку и сбрасываем счётчик
+      audio.addEventListener("ended", function() {
+        btn.style.display = "none";
+        clickCount = 0;
+      });
+
+      // Обработка нажатий на кнопку
+      btn.addEventListener("click", function() {
+        clickCount++;
+        if (clickCount >= 3) {
+          audio.pause();
+          audio.currentTime = 0;
+          btn.style.display = "none";
+          clickCount = 0;
+        }
+      });
+    });
+
+  </script>
+</head>
+<body>
+  <header>
+    <h1 id="top">Учёба на <abbr title="Механико-математический факультет">ММФ</abbr> <abbr title="Белорусский государственный университет">БГУ</abbr></h1>
+    <p><strong>Ключевые слова продвижения:</strong> студенческая жизнь ММФ, кружки, наука, традиции БГУ</p>
+  </header>
+
+  <p title="Секрет!">
+    Хотите секрет?
+  </p>
+
+  <!-- (14) Оглавление с якорями -->
+  <nav>
+    <h2>Оглавление</h2>
+    <ul>
+      <li><a href="#life">Студенческая жизнь</a></li>
+      <li><a href="#science">Научная деятельность</a></li>
+      <li><a href="#tradition">Традиции</a></li>
+      <li><a href="#notes">Заметки</a></li>
+      <li><a href="#quote">Цитата</a></li>
+      <li><a href="#group">Фото группы</a></li>
+      <li><a href="#map">Навигационная карта</a></li>
+      <li><a href="#links">Ссылки</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- (7) Подсказки title -->
+    <section id="life">
+      <h2>Студенческая жизнь</h2>
+      <p title="Источник: группа факультета в соцсетях">На факультете активно развиваются научные кружки, спортивные секции и культурные мероприятия.</p>
+    </section>
+
+    <section id="science">
+      <h2>Научная деятельность</h2>
+      <p title="Моё мнение: участие в конференциях — важная часть обучения">Студенты участвуют в конференциях, олимпиадах и проектах по прикладной математике.</p>
+    </section>
+
+    <section id="tradition">
+      <h2>Традиции</h2>
+      <p>Каждый год проводится посвящение первокурсников и фестиваль студенческих талантов.</p>
+      <!-- (8) Скрытый параграф -->
+      <button onclick="showHidden()">Хотите анекдот?</button>
+      <p id="hiddenPara" style="display:none;">Физик, математик и инженер стоят в поле. Каждому выдали одинаковое число досок и сказали построить из них забор, внутри которого уместится максимально возможное число овец. Инженер построил небольшой, но крепкий загончик в форме квадрата. Физик построил загон в форме окружности, утверждая что такая форма может вместить больше всего овец. Математик построил заборчик по кругу, сам сел в центре и заявил: "Принимаем, что я нахожусь снаружи".</p>
+    </section>
+
+    <!-- (10) Редактируемый абзац + (11) email из него -->
+    <section id="notes">
+      <h2>Ваши заметки</h2>
+      <p id="editable" contenteditable="true" spellcheck="true">Здесь можно редактировать текст, добавлять свои мысли о факультете.</p>
+      <p><button onclick="sendMail()">Отправить заметку по email (тема: «Предлагаю встретиться»)</button></p>
+    </section>
+
+    <!-- (12) Цитата, не переводится -->
+    <section id="quote">
+      <h2>Цитата (нажмите сюда, пожалуйста! Будет сюрприз!)</h2>
+      <p translate="no" id="gaudeamus">
+        <q>Gaudeamus igitur, iuvenes dum sumus!</q>
+        <!-- Кнопка справа от цитаты -->
+        <button id="stopMusicBtn" style="display:none;">Мне надоела музыка!</button>
+      </p>
+      <!-- Аудио‑элемент -->
+      <audio id="gaudeamusAudio" src="Gaudeamus.mp3"></audio>
+    </section>
+
+
+
+    <!-- (13) Разные кавычки -->
+    <section>
+      <h2>Пример кавычек</h2>
+      <p>«Это пример текста, внутри которого есть "другая цитата".»</p>
+    </section>
+
+    <!-- (19) Фото группы с ссылкой на страницу -->
+    <section id="group">
+      <h2>Фото учебной группы</h2>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank" title="Страница группы ВКонтакте">
+        <img src="group.jpg" alt="Фото учебной группы ММФ БГУ" width="600">
+      </a>
+    </section>
+
+    <!-- (21) Графическая карта -->
+    <section id="map">
+      <h2>Навигационная карта</h2>
+      <img src="group_map.jpg" alt="Фото группы с навигацией по участникам" usemap="#groupmap" width="600" height="300">
+      <map name="groupmap">
+        <area shape="rect" coords="10,80,180,290" href="https://vk.com/student1" alt="Студент 1" title="Грибчик">
+        <area shape="rect" coords="250,20,410,280" href="https://vk.com/student2" alt="Студент 2" title="Гриб">
+        <area shape="rect" coords="420,10,570,250" href="https://vk.com/student3" alt="Студент 3" title="Грибок">
+      </map>
+      <p><em>Подсказка:</em> наведите на товарища и кликните для перехода на страницу.</p>
+    </section>
+
+    <!-- (22, 15, 16, 17, 18) Ссылки, оформление, картинка-ссылка, alt -->
+    <section id="links">
+      <h2>Ссылки</h2>
+      <p><a href="resume.html">Вернуться к резюме</a></p>
+      <p><a href="https://mmf.bsu.by" title="Сайт ММФ БГУ — доступ также по Alt+F">Сайт факультета</a></p>
+      <p><a href="books.html" style="text-decoration:none;">Полезные книги (ссылка без подчёркивания)</a></p>
+      <p><a href="books.html"><img src="marker.png" alt="Перейти к списку книг" width="320"></a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="#top">Наверх</a></p>
+    <p>&copy; 2025 Персональный сайт преподавателя. Все права защищены. Символы: &euro; &dollar; &lt;tag&gt;</p>
+  </footer>
+</body>
+</html>
